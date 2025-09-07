@@ -3,109 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan Romantis</title>
+    <title>Undangan Pernikahan | Raihan & Aisyah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400&display=swap');
+        :root {
+            --primary-color: #A52A2A; /* Coklat kemerahan */
+            --secondary-color: #8B4513; /* Coklat tua */
+            --background-light: #fce4ec; /* Pink muda */
+            --text-dark: #333;
+            --text-light: #fff;
+        }
 
         body {
             font-family: 'Lora', serif;
-            color: #333;
+            color: var(--text-dark);
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #fce4ec; /* Warna background pink muda */
-            background-image: url('https://images.unsplash.com/photo-1517457375865-8ae64a5c531a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDkwMDJ8MHwxfHNlYXJjaHwzfHx3ZWRkaW5nJTIwZGlnaXRhbCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNjk5MjI3MDAwfDA&ixlib=rb-4.0.3&q=80&w=1080'); /* URL gambar background */
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        .section {
+            padding: 60px 20px;
+            overflow: hidden;
+        }
+
+        .hero-section {
+            background-image: url('https://images.unsplash.com/photo-1517457375865-8ae64a5c531a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDkwMDJ8MHwxfHNlYXJjaHwzfHx3ZWRkaW5nJTIwYmFja2dyb3VuZCUyMGZsYXQlMjBsYXl8ZW58MHx8fHwxNjk5MjI3MDAwfDA&ixlib=rb-4.0.3&q=80&w=1080');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            color: var(--text-light);
+            position: relative;
         }
 
-        .undangan-card {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content {
+            z-index: 1;
+            padding: 20px;
             animation: fadeIn 2s ease-in-out;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            margin-bottom: 10px;
         }
 
-        h1 {
+        .hero-content h2 {
             font-family: 'Playfair Display', serif;
-            color: #a52a2a; /* Coklat kemerahan */
-            font-size: 2.5em;
-            margin-bottom: 5px;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            color: #8b4513; /* Coklat tua */
+            font-weight: 400;
             font-size: 1.5em;
             margin-top: 0;
         }
-
+        
         .nama-pengantin {
-            font-size: 1.8em;
+            font-size: 2.5em;
             font-weight: bold;
-            color: #a52a2a;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            margin: 20px 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
         }
 
+        .undangan-info {
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
         .countdown {
-            margin: 20px 0;
-            font-size: 1.2em;
-            color: #555;
-            font-weight: bold;
+            margin: 30px 0;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
+        }
+        
+        .countdown-item {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 15px 20px;
+            border-radius: 10px;
+            min-width: 80px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        .countdown div {
-            padding: 10px;
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            min-width: 60px;
-        }
-
-        .countdown .label {
+        .countdown-item span {
             display: block;
-            font-size: 0.7em;
-            font-weight: normal;
-            margin-top: 5px;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .countdown-item small {
+            font-size: 0.8em;
+        }
+        
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
         .cta-button {
             display: inline-block;
-            background-color: #8b4513;
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--text-light);
             padding: 12px 25px;
             text-decoration: none;
             border-radius: 50px;
             margin-top: 20px;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .cta-button:hover {
-            background-color: #a52a2a;
-            transform: translateY(-5px) scale(1.05);
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .nama-pengantin {
+                font-size: 1.8em;
+            }
+            .countdown-item {
+                padding: 10px;
+            }
+            .countdown-item span {
+                font-size: 1.5em;
+            }
+        }
     </style>
+</head>
+<body>
+
+    <div class="section hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>The Wedding of</h2>
+            <div class="nama-pengantin">Raihan & Aisyah</div>
+            <p>Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk hadir dalam hari bahagia kami.</p>
+            <a href="#details" class="cta-button">Buka Undangan</a>
+        </div>
+    </div>
+
+    <div class="section undangan-info" id="details">
+        <h3>Detail Acara</h3>
+        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
+        
+        <p><strong>Akad Nikah</strong><br>Sabtu, 21 September 2026<br>Pukul: 08.00 - 09.00 WIB<br>Lokasi: Masjid Raya Jakarta</p>
+        
+        <p><strong>Resepsi</strong><br>Sabtu, 21 September 2026<br>Pukul: 10.00 - 13.00 WIB<br>Lokasi: Grand Ballroom Jakarta</p>
+        
+        <a href="https://maps.app.goo.gl/abcdefg" class="cta-button" target="_blank">Lihat Lokasi di Google Maps</a>
+    </div>
+
+    <div class="section">
+        <h3>Hari Menuju Hari Bahagia</h3>
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <span id="days">0</span>
+                <small>Hari</small>
+            </div>
+            <div class="countdown-item">
+                <span id="hours">0</span>
+                <small>Jam</small>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes">0</span>
+                <small>Menit</small>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds">0</span>
+                <small>Detik</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="section undangan-info">
+        <h3>Galeri Foto</h3>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1543886561-825585b4f8d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDkwMDJ8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwcGhvdG9ncmFwaHl8ZW58MHx8fHwxNjk5MjI3MDAwfDA&ixlib=rb-4.0.3&q=80&w=400" alt="Foto Pre-wedding 1">
+            <img src="https://images.unsplash.com/photo-1520854221256-17457443f110?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDkwMDJ8MHwxfHNlYXJjaHw3fHx3ZWRkaW5nJTIwcGhvdG9ncmFwaHl8ZW58MHx8fHwxNjk5MjI3MDAwfDA&ixlib=rb-4.0.3&q=80&w=400" alt="Foto Pre-wedding 2">
+            <img src="https://images.unsplash.com/photo-1519046755866-2187a5522e89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDkwMDJ8MHwxfHNlYXJjaHwyMHx8d2VkZGluZyUyMHBob3RvZ3JhcGh5fGVufDB8fHx8MTY5OTIyNzAwMHww&ixlib=rb-4.0.3&q=80&w=400" alt="Foto Pre-wedding 3">
+        </div>
+    </div>
+
+    <script>
+        const countdownDate = new Date("Sep 21, 2026 10:00:00").getTime();
+        
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            if (document.getElementById("days")) {
+                document.getElementById("days").innerHTML = days;
+                document.getElementById("hours").innerHTML = hours;
+                document.getElementById("minutes").innerHTML = minutes;
+                document.getElementById("seconds").innerHTML = seconds;
+            }
+            
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<span>ACARA SUDAH DIMULAI!</span>";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html    </style>
 </head>
 <body>
 
