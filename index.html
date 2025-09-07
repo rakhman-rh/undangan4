@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Romantis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400&display=swap');
+
+        body {
+            font-family: 'Lora', serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fce4ec; /* Warna background pink muda */
+            background-image: url('https://images.unsplash.com/photo-1517457375865-8ae64a5c531a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDkwMDJ8MHwxfHNlYXJjaHwzfHx3ZWRkaW5nJTIwZGlnaXRhbCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNjk5MjI3MDAwfDA&ixlib=rb-4.0.3&q=80&w=1080'); /* URL gambar background */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .undangan-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #a52a2a; /* Coklat kemerahan */
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #8b4513; /* Coklat tua */
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        .nama-pengantin {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #a52a2a;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #555;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .countdown div {
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            min-width: 60px;
+        }
+
+        .countdown .label {
+            display: block;
+            font-size: 0.7em;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #8b4513;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background-color: #a52a2a;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="undangan-card">
+        <h2>We're Getting Married</h2>
+        <h1>Undangan Pernikahan</h1>
+        
+        <p>Dengan segala kerendahan hati, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara bahagia kami.</p>
+
+        <p class="nama-pengantin">Raihan & Aisyah</p>
+        
+        <div class="countdown" id="countdown">
+            <div><span id="days">0</span><span class="label">Hari</span></div>
+            <div><span id="hours">0</span><span class="label">Jam</span></div>
+            <div><span id="minutes">0</span><span class="label">Menit</span></div>
+            <div><span id="seconds">0</span><span class="label">Detik</span></div>
+        </div>
+
+        <p><strong>Tanggal:</strong> Sabtu, 21 September 2026</p>
+        <p><strong>Pukul:</strong> 10.00 - 13.00 WIB</p>
+        <p><strong>Lokasi:</strong> Grand Ballroom Jakarta</p>
+
+        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.</p>
+
+        <a href="https://maps.app.goo.gl/abcdefg" class="cta-button" target="_blank">Lihat Lokasi di Google Maps</a>
+    </div>
+
+    <script>
+        const countdownDate = new Date("Sep 21, 2026 10:00:00").getTime();
+        
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+            
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "ACARA SUDAH DIMULAI!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
